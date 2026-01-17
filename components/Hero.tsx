@@ -21,7 +21,7 @@ export default function Hero() {
         </h2>
 
         <p className="text-xl sm:text-2xl text-gray-500 mb-8 italic">
-          "Đam mê code, không ngừng học hỏi" ☕
+          &ldquo;Đam mê code, không ngừng học hỏi&rdquo; ☕
         </p>
 
         {/* CTA Buttons */}
