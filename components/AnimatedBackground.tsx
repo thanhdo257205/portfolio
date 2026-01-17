@@ -11,6 +11,14 @@ interface Particle {
   size: number;
 }
 
+// Constants for particle behavior
+const MOBILE_BREAKPOINT = 768;
+const PARTICLES_DESKTOP = 50;
+const PARTICLES_MOBILE = 30;
+const MOUSE_INTERACTION_RADIUS = 100;
+const MOUSE_FORCE_MULTIPLIER = 0.03;
+const CONNECTION_DISTANCE_THRESHOLD = 120;
+
 export default function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { theme } = useTheme();
@@ -34,7 +42,7 @@ export default function AnimatedBackground() {
     window.addEventListener('resize', resizeCanvas);
 
     // Initialize particles - check after canvas is set up
-    const particleCount = canvas.width < 768 ? 30 : 50; // Fewer particles on mobile
+    const particleCount = canvas.width < MOBILE_BREAKPOINT ? PARTICLES_MOBILE : PARTICLES_DESKTOP;
     particlesRef.current = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -94,10 +102,10 @@ export default function AnimatedBackground() {
         const dy = mouseRef.current.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < 100) {
-          const force = (100 - distance) / 100;
-          particle.x -= dx * force * 0.03;
-          particle.y -= dy * force * 0.03;
+        if (distance < MOUSE_INTERACTION_RADIUS) {
+          const force = (MOUSE_INTERACTION_RADIUS - distance) / MOUSE_INTERACTION_RADIUS;
+          particle.x -= dx * force * MOUSE_FORCE_MULTIPLIER;
+          particle.y -= dy * force * MOUSE_FORCE_MULTIPLIER;
         }
 
         // Draw particle
@@ -112,7 +120,7 @@ export default function AnimatedBackground() {
           const dy = particles[j].y - particle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) {
+          if (distance < CONNECTION_DISTANCE_THRESHOLD) {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(particles[j].x, particles[j].y);
