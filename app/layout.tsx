@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from 'next-themes';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 export const metadata: Metadata = {
   title: "Đỗ Hoàn Thành | Java Developer Portfolio",
@@ -26,7 +27,10 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
+          <AnimatedBackground />
+          <div className="relative z-10">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
