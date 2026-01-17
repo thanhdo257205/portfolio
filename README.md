@@ -2,27 +2,27 @@
 
 Portfolio cá nhân hiện đại của Đỗ Hoàn Thành - Java Developer & Student @ FPT University.
 
-## 🚀 Demo
+##  Demo
 
 Portfolio này được xây dựng để showcase kỹ năng, dự án và thông tin liên hệ của tôi.
 
-## 💻 Tech Stack
+##  Tech Stack
 
 - **Framework:** Next.js 14 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **Deployment:** Vercel
 
-## 🎨 Features
+##  Features
 
-- ✨ Dark theme hiện đại
-- 📱 Responsive design (Mobile, Tablet, Desktop)
-- 🎯 Smooth scrolling navigation
-- 💫 Hover effects và animations
-- ⚡ Optimized for performance
-- 🔍 SEO friendly
+-  Dark theme hiện đại
+-  Responsive design (Mobile, Tablet, Desktop)
+-  Smooth scrolling navigation
+-  Hover effects và animations
+-  Optimized for performance
+-  SEO friendly
 
-## 📦 Installation
+##  Installation
 
 ### Prerequisites
 
@@ -56,7 +56,7 @@ yarn dev
 
 Mở [http://localhost:3000](http://localhost:3000) để xem kết quả.
 
-## 🏗️ Build
+##  Build
 
 Build cho production:
 
@@ -74,7 +74,7 @@ npm start
 yarn start
 ```
 
-## 🚀 Deploy to Vercel
+##  Deploy to Vercel
 
 ### Cách 1: Deploy qua Vercel Dashboard
 
@@ -97,7 +97,7 @@ vercel
 
 Không cần thiết lập environment variables cho project này.
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 portfolio/
@@ -129,7 +129,7 @@ portfolio/
 3. Thêm projects thực tế vào `components/Projects.tsx`
 4. Cập nhật skills trong `components/Skills.tsx`
 
-## 🎯 Sections
+##  Sections
 
 - **Hero:** Giới thiệu tên, vai trò, và CTA buttons
 - **About:** Thông tin về bản thân và mục tiêu nghề nghiệp
@@ -138,17 +138,17 @@ portfolio/
 - **Contact:** Thông tin liên hệ và social links
 - **Footer:** Copyright và quick links
 
-## 📧 Contact
+##  Contact
 
 - **Email:** dothanh2572005@gmail.com
 - **GitHub:** [github.com/thanhdo257205](https://github.com/thanhdo257205)
 - **Trường:** Đại học FPT Hà Nội
 
-## 📄 License
+##  License
 
 This project is open source and available under the MIT License.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Next.js team for the amazing framework
 - Tailwind CSS for the utility-first CSS framework
