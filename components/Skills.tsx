@@ -9,7 +9,6 @@ export default function Skills() {
     {
       title: 'Languages',
       icon: <FiCode className="text-3xl" />,
-      color: 'category-languages',
       bgColor: 'bg-blue-500/10 dark:bg-blue-500/20',
       borderColor: 'border-blue-500/50 hover:border-blue-500',
       iconColor: 'text-blue-500',
@@ -24,7 +23,6 @@ export default function Skills() {
     {
       title: 'Frameworks & Libraries',
       icon: <FiZap className="text-3xl" />,
-      color: 'category-frameworks',
       bgColor: 'bg-purple-500/10 dark:bg-purple-500/20',
       borderColor: 'border-purple-500/50 hover:border-purple-500',
       iconColor: 'text-purple-500',
@@ -38,7 +36,6 @@ export default function Skills() {
     {
       title: 'Tools & Technologies',
       icon: <FiTool className="text-3xl" />,
-      color: 'category-tools',
       bgColor: 'bg-emerald-500/10 dark:bg-emerald-500/20',
       borderColor: 'border-emerald-500/50 hover:border-emerald-500',
       iconColor: 'text-emerald-500',
@@ -53,7 +50,6 @@ export default function Skills() {
     {
       title: 'Databases',
       icon: <FiDatabase className="text-3xl" />,
-      color: 'category-databases',
       bgColor: 'bg-orange-500/10 dark:bg-orange-500/20',
       borderColor: 'border-orange-500/50 hover:border-orange-500',
       iconColor: 'text-orange-500',
