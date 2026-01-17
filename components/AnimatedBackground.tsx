@@ -16,8 +16,10 @@ const MOBILE_BREAKPOINT = 768;
 const PARTICLES_DESKTOP = 50;
 const PARTICLES_MOBILE = 30;
 const MOUSE_INTERACTION_RADIUS = 100;
+const MOUSE_INTERACTION_RADIUS_SQUARED = MOUSE_INTERACTION_RADIUS * MOUSE_INTERACTION_RADIUS;
 const MOUSE_FORCE_MULTIPLIER = 0.03;
 const CONNECTION_DISTANCE_THRESHOLD = 120;
+const CONNECTION_DISTANCE_THRESHOLD_SQUARED = CONNECTION_DISTANCE_THRESHOLD * CONNECTION_DISTANCE_THRESHOLD;
 
 export default function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -100,9 +102,10 @@ export default function AnimatedBackground() {
         // Mouse interaction - particles move away from cursor
         const dx = mouseRef.current.x - particle.x;
         const dy = mouseRef.current.y - particle.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        const distanceSquared = dx * dx + dy * dy;
         
-        if (distance < MOUSE_INTERACTION_RADIUS) {
+        if (distanceSquared < MOUSE_INTERACTION_RADIUS_SQUARED) {
+          const distance = Math.sqrt(distanceSquared);
           const force = (MOUSE_INTERACTION_RADIUS - distance) / MOUSE_INTERACTION_RADIUS;
           particle.x -= dx * force * MOUSE_FORCE_MULTIPLIER;
           particle.y -= dy * force * MOUSE_FORCE_MULTIPLIER;
@@ -118,9 +121,9 @@ export default function AnimatedBackground() {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[j].x - particle.x;
           const dy = particles[j].y - particle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+          const distanceSquared = dx * dx + dy * dy;
 
-          if (distance < CONNECTION_DISTANCE_THRESHOLD) {
+          if (distanceSquared < CONNECTION_DISTANCE_THRESHOLD_SQUARED) {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(particles[j].x, particles[j].y);
