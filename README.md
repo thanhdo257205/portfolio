@@ -156,4 +156,5 @@ This project is open source and available under the MIT License.
 
 ---
 
-Made with ❤️ and ☕ by Đỗ Hoàn Thành
+Made by Đỗ Hoàn Thành
+Fact (I got vibe code and came up with all this stuff)
