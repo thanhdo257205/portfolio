@@ -1,3 +1,9 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { FiCoffee, FiClock } from 'react-icons/fi';
+import { slideUp, staggerContainer, staggerItem } from '@/lib/animations';
+
 export default function Projects() {
   const placeholderProjects = [
     {
@@ -21,66 +27,100 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-          Dự án của <span className="text-blue-500">Tôi</span>
-        </h2>
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold mb-4 text-center text-gray-800 dark:text-white"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideUp}
+        >
+          Dự án của <span className="text-primary">Tôi</span>
+        </motion.h2>
         
         {/* Coming Soon Banner */}
-        <div className="text-center mb-12">
-          <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl px-8 py-4 shadow-2xl transform hover:scale-105 transition-transform duration-300">
-            <p className="text-3xl font-bold text-white mb-2">🚀 Coming Soon</p>
-            <p className="text-lg text-gray-200">
+        <motion.div 
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideUp}
+          transition={{ delay: 0.1 }}
+        >
+          <motion.div 
+            className="inline-block bg-gradient-to-r from-primary to-secondary rounded-2xl px-8 py-4 shadow-2xl"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <p className="text-3xl font-bold text-white mb-2">Coming Soon</p>
+            <p className="text-lg text-gray-100">
               Tôi đang xây dựng các dự án thú vị. Hãy quay lại sau để xem!
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Placeholder Project Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+        >
           {placeholderProjects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 transform hover:scale-105 shadow-xl group"
+              className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-all duration-300 shadow-xl group"
+              variants={staggerItem}
+              whileHover={{ scale: 1.05, y: -5 }}
             >
               {/* Project icon/placeholder */}
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                <span className="text-3xl">☕</span>
-              </div>
+              <motion.div 
+                className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-4"
+                whileHover={{ rotate: 6 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FiCoffee className="text-3xl text-white" />
+              </motion.div>
 
-              <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-              <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
+              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{project.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">{project.description}</p>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag) => (
-                  <span
+                  <motion.span
                     key={tag}
-                    className="text-xs px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full"
+                    className="text-xs px-3 py-1 bg-primary/20 text-primary rounded-full"
+                    whileHover={{ scale: 1.1 }}
                   >
                     {tag}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
 
               {/* Status Badge */}
-              <div className="flex items-center text-yellow-400">
-                <svg className="w-4 h-4 mr-2 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                </svg>
+              <div className="flex items-center text-yellow-500">
+                <FiClock className="w-4 h-4 mr-2" />
                 <span className="text-sm font-medium">{project.status}</span>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Call to action */}
-        <div className="mt-12 text-center">
-          <p className="text-gray-400 text-lg">
-            Các dự án thực tế sẽ sớm được cập nhật tại đây! 💪
+        <motion.div 
+          className="mt-12 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideUp}
+        >
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
+            Các dự án thực tế sẽ sớm được cập nhật tại đây!
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
