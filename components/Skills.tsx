@@ -56,6 +56,7 @@ export default function Skills() {
       skills: [
         { name: 'MySQL', level: 'Trung bình' },
         { name: 'PostgreSQL', level: 'Cơ bản' },
+        { name: 'SQL Server', level: 'Cơ bản' },
       ],
     },
   ];
