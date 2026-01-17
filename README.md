@@ -1,6 +1,6 @@
 # Portfolio - Đỗ Hoàn Thành
 
-Portfolio cá nhân hiện đại của Đỗ Hoàn Thành - Java Developer & Student @ FPT University.
+Portfolio cá nhân - Java Developer & Student @ FPT University.
 
 ##  Demo
 
