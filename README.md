@@ -44,7 +44,7 @@ npm install
 yarn install
 ```
 
-## 🛠️ Development
+## Development
 
 Chạy development server:
 
@@ -120,7 +120,7 @@ portfolio/
 └── next.config.js          # Next.js configuration
 ```
 
-## 📝 Customization
+## Customization
 
 Để customize portfolio cho bản thân:
 
