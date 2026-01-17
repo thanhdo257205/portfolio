@@ -33,8 +33,8 @@ export default function AnimatedBackground() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Initialize particles
-    const particleCount = window.innerWidth < 768 ? 30 : 50; // Fewer particles on mobile
+    // Initialize particles - check after canvas is set up
+    const particleCount = canvas.width < 768 ? 30 : 50; // Fewer particles on mobile
     particlesRef.current = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -72,9 +72,22 @@ export default function AnimatedBackground() {
         particle.x += particle.vx;
         particle.y += particle.vy;
 
-        // Bounce off edges
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+        // Bounce off edges and clamp position within bounds
+        if (particle.x < 0) {
+          particle.x = 0;
+          particle.vx *= -1;
+        } else if (particle.x > canvas.width) {
+          particle.x = canvas.width;
+          particle.vx *= -1;
+        }
+        
+        if (particle.y < 0) {
+          particle.y = 0;
+          particle.vy *= -1;
+        } else if (particle.y > canvas.height) {
+          particle.y = canvas.height;
+          particle.vy *= -1;
+        }
 
         // Mouse interaction - particles move away from cursor
         const dx = mouseRef.current.x - particle.x;
